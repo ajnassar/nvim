@@ -1,3 +1,5 @@
+" Credits go to ThePrimeagen and Chrisatmachine
+
 " SETS
 set relativenumber
 set nohlsearch
@@ -64,14 +66,6 @@ nnoremap <leader>Y gg"+yG
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
-nnoremap <leader>ao :call ThePrimeagenTurnOnGuides()<cr>
-nnoremap <leader>ae :call ThePrimeagenTurnOffGuides()<cr>
-
-map <C-p> :Files<CR>
-map <leader>b :Buffers<CR>
-nnoremap <C-f> :Rg<CR>
-nnoremap <leader>t :Tags<CR>
-nnoremap <leader>m :Marks<CR>
 
 " PLUGINS
 call plug#begin('~/.vim/plugged')
@@ -96,27 +90,29 @@ augroup CHEESYBACON
     autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
 augroup END
 
-fun! ThePrimeagenTurnOnGuides()
+fun! CheesybaconTurnOnGuides()
     set rnu
     set nu
     set signcolumn=yes
     set colorcolumn=80
 endfun
 
-fun! ThePrimeagenTurnOffGuides()
+fun! CheesybaconTurnOffGuides()
     set nornu
     set nonu
     set signcolumn=no
     set colorcolumn=800
 endfun
 
-augroup THE_PRIMEAGEN_MINIMAL
+nnoremap <leader>ao :call CheesybaconTurnOnGuides()<cr>
+nnoremap <leader>ae :call CheesybaconTurnOffGuides()<cr>
+
+augroup CHEESYBACON_MINIMAL
     autocmd!
-    autocmd FileType *\(^\(netrw\|help\)\)\@<! :call ThePrimeagenTurnOnGuides()
-    autocmd FileType netrw,help :call ThePrimeagenTurnOffGuides()
+    autocmd FileType *\(^\(netrw\|help\)\)\@<! :call CheesybaconTurnOnGuides()
+    autocmd FileType netrw,help :call CheesybaconTurnOffGuides()
 augroup END
 
-" FZF/RG CONFIG
 " This is the default extra key bindings
 let g:fzf_action = {
             \ 'ctrl-t': 'tab split',
@@ -129,6 +125,11 @@ let g:fzf_action = {
 " explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
+map <C-p> :Files<CR>
+map <leader>b :Buffers<CR>
+nnoremap <C-f> :Rg<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>m :Marks<CR>
 
 let g:fzf_tags_command = 'ctags -R'
 " Border color

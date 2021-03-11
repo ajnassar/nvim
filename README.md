@@ -105,3 +105,5 @@ command! -bang -nargs=* GGrep
     \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 ```
 
+## Credits
+Thanks to ThePrimagen and Chrisatmachine all of this is a mish mash of their ideas that work best for me.
