@@ -12,7 +12,6 @@ To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
 brew install ripgrep
 brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-brew install the-silver-searcher
 brew install fd
 ```
 
@@ -21,7 +20,6 @@ Ubuntu:
 sudo apt install fzf
 sudo apt install ripgrep
 sudo apt install universal-ctags
-sudo apt install silversearcher-ag
 sudo apt install fd-find
 ```
 ## Plug FZF & vim-rooter into vim
